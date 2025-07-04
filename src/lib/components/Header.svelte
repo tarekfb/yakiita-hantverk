@@ -53,7 +53,7 @@
           class="inline-flex items-center justify-center"
         >
           <Phone class="size-4 mr-2" />
-          Ring oss
+          Ring mig
         </Button>
       </div>
 

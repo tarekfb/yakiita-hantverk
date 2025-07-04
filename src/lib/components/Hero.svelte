@@ -35,7 +35,7 @@
         class="flex items-center self-center justify-center transition-colors mb-6 mt-8"
       >
         <Phone class="h-5 w-5 mr-2" />
-        Ring oss
+        Ring mig
       </Button>
     </div>
 
