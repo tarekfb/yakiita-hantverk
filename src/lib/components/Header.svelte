@@ -23,11 +23,11 @@
 >
   <div class="container mx-auto px-4 py-4">
     <nav class="flex items-center justify-between">
-      <div class="flex items-center space-x-2">
+      <a href="/" class="flex items-center space-x-2">
         <h1 class="text-2xl font-serif font-bold text-primary">
           Yakiita Hantverk
         </h1>
-      </div>
+      </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">

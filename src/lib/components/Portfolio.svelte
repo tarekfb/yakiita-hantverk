@@ -40,13 +40,6 @@
     selectedCategory = category
     loadedItems = 6
   }
-
-  // Helper function to get image URL from asset reference
-  function getImageUrl(assetRef: string): string {
-    // For now, return a placeholder or you'll need to implement image URL resolution
-    // based on your Sanity setup
-    return `/api/sanity/image/${assetRef}`
-  }
 </script>
 
 <section id="portfolio" class="py-20 bg-accent/10">
@@ -65,7 +58,7 @@
       {#each categories as category}
         <button
           onclick={() => handleCategoryChange(category)}
-          class="px-6 py-2 rounded-full transition-colors {selectedCategory ===
+          class="cursor-pointer px-6 py-2 rounded-full transition-colors {selectedCategory ===
           category
             ? 'bg-secondary text-white'
             : 'bg-accent/50 text-secondary hover:bg-accent'}"
