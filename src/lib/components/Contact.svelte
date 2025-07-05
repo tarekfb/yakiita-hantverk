@@ -1,9 +1,6 @@
 <script lang="ts">
-  import { Mail, Phone, MapPin, Clock } from 'lucide-svelte'
-  import { Button } from '$lib/components/ui/button'
-  import { Input } from '$lib/components/ui/input'
-  import { Textarea } from '$lib/components/ui/textarea'
-  import { city, country, email } from '$lib/constants'
+  import { Mail, Phone, MapPin } from 'lucide-svelte'
+  import { city, country, email, phoneNumber } from '$lib/constants'
 
   let formData = {
     name: '',
@@ -47,29 +44,26 @@
 
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Contact Information -->
-        <div class="space-y-8">
-          <div class="space-y-6">
-            <div class="flex items-center space-x-4">
+        <div class="space-y-8  flex flex-col justify-between">
+            <a href="mailto:{email}" class="flex items-center space-x-4 transition-all duration-300 md:hover:text-secondary hover:scale-105">
               <div class="p-3 bg-secondary/10 rounded-lg">
                 <Mail class="h-6 w-6 text-secondary" />
               </div>
               <div>
                 <h3 class="font-semibold text-primary">E-post</h3>
-                <a href="mailto:{email}" class="text-secondary">{email}</a>
+                <p class="text-secondary">{email}</p>
               </div>
-            </div>
+            </a>
 
-            <div class="flex items-center space-x-4">
+            <a href="tel:{phoneNumber}" class="flex items-center space-x-4 transition-all duration-300 md:hover:text-secondary hover:scale-105">
               <div class="p-3 bg-secondary/10 rounded-lg">
                 <Phone class="h-6 w-6 text-secondary" />
               </div>
               <div>
                 <h3 class="font-semibold text-primary">Telefon</h3>
-                <a href="tel:+46704215296" class="text-secondary"
-                  >+46 70 421 52 96</a
-                >
+                <p class="text-secondary">{phoneNumber}</p>
               </div>
-            </div>
+            </a>
 
             <div class="flex items-center space-x-4">
               <div class="p-3 bg-secondary/10 rounded-lg">
@@ -81,122 +75,18 @@
               </div>
             </div>
 
-            <div class="flex items-center space-x-4">
-              <div class="p-3 bg-secondary/10 rounded-lg">
-                <Clock class="h-6 w-6 text-secondary" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary">Öppettider</h3>
-                <p class="text-secondary">Måndag - Fredag: 08:00 - 17:00</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 bg-accent/20 rounded-lg">
-            <h3 class="font-serif font-semibold text-primary mb-3">
-              Varför välja Yakiita Hantverk?
-            </h3>
-            <ul class="space-y-2 text-secondary">
-              <li>• Över 15 års erfarenhet</li>
-              <li>• Skräddarsydda lösningar</li>
-              <li>• Hållbara material</li>
-              <li>• Traditionella tekniker</li>
-              <li>• Modern design</li>
-            </ul>
-          </div>
         </div>
-
-        <!-- Contact Form -->
-        <div class="bg-accent/10 p-8 rounded-lg">
-          <h3 class="text-2xl font-serif font-semibold text-primary mb-6">
-            Skicka ett meddelande
+        <div class="p-6 bg-accent/20 rounded-lg">
+          <h3 class="font-serif font-semibold text-primary mb-3">
+            Varför välja Yakiita Hantverk?
           </h3>
-
-          {#if success}
-            <div
-              class="p-4 bg-green-100 border border-green-200 rounded-lg mb-6"
-            >
-              <p class="text-green-800">
-                Tack för ditt meddelande! Jag återkommer inom 24 timmar.
-              </p>
-            </div>
-          {/if}
-
-          <form on:submit|preventDefault={handleSubmit} class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-primary mb-2"
-                >
-                  Namn *
-                </label>
-                <Input
-                  id="name"
-                  bind:value={formData.name}
-                  placeholder="Ditt namn"
-                  required
-                  class="bg-background"
-                />
-              </div>
-              <div>
-                <label
-                  for="phone"
-                  class="block text-sm font-medium text-primary mb-2"
-                >
-                  Telefon
-                </label>
-                <Input
-                  id="phone"
-                  bind:value={formData.phone}
-                  placeholder="Ditt telefonnummer"
-                  class="bg-background"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                for="email"
-                class="block text-sm font-medium text-primary mb-2"
-              >
-                E-post *
-              </label>
-              <Input
-                id="email"
-                type="email"
-                bind:value={formData.email}
-                placeholder="din@email.se"
-                required
-                class="bg-background"
-              />
-            </div>
-
-            <div>
-              <label
-                for="message"
-                class="block text-sm font-medium text-primary mb-2"
-              >
-                Meddelande *
-              </label>
-              <Textarea
-                id="message"
-                bind:value={formData.message}
-                placeholder="Berätta om ditt projekt..."
-                rows={5}
-                required
-                class="bg-background"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              disabled={loading}
-              class="w-full bg-secondary hover:bg-primary text-white"
-            >
-              {loading ? 'Skickar...' : 'Skicka Meddelande'}
-            </Button>
-          </form>
+          <ul class="space-y-2 text-secondary">
+            <li>• Skräddarsydda lösningar</li>
+            <li>• Hållbara material</li>
+            <li>• Traditionella tekniker</li>
+            <li>• Modern design</li>
+            <li>• Nöjda kunder</li>
+          </ul>
         </div>
       </div>
     </div>

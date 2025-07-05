@@ -1,5 +1,6 @@
 <script>
-  import { city, country } from '$lib/constants'
+  import { city, country, email, phoneNumber, foundingYear } from '$lib/constants'
+  import { Mail, MapPin, Phone } from 'lucide-svelte';
 </script>
 
 <footer class="bg-primary text-accent py-12">
@@ -9,7 +10,7 @@
         <h3 class="text-2xl font-serif font-bold mb-4">Yakiita Hantverk</h3>
         <p class="text-accent/80 mb-4">
           Traditionellt hantverk med modern touch. Skapande av unika träföremål
-          sedan 2008.
+          sedan {foundingYear}.
         </p>
       </div>
 
@@ -19,17 +20,26 @@
           <li>Skräddarsydda möbler</li>
           <li>Köksinredning</li>
           <li>Restaurering</li>
-          <li>Träskulpturer</li>
+          <li>Renovering</li>
           <li>Utomhusmöbler</li>
         </ul>
       </div>
 
       <div>
         <h4 class="font-semibold mb-4">Kontakt</h4>
-        <div class="space-y-2 text-accent/80">
-          <p>{city}, {country}</p>
-          <p>+46 70 123 45 67</p>
-          <p>info@yakiitahantverk.se</p>
+        <div class="space-y-2 text-accent/80  *:flex *:gap-x-2 *:items-center">
+          <div>
+            <Phone class="size-4 text-accent/80 shrink-0" />
+            <a href="tel:{phoneNumber}">{phoneNumber}</a>
+          </div>
+          <div>
+            <Mail class="size-4 text-accent/80 shrink-0" />
+            <a href="mailto:{email}">{email}</a>
+          </div>
+          <div>
+            <MapPin class="size-4 text-accent/80 shrink-0" />
+            <p>{city}, {country}</p>
+          </div>
         </div>
       </div>
     </div>

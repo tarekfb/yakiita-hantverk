@@ -110,18 +110,18 @@
               <h3 class="text-xl font-serif font-semibold text-primary">
                 {item.title}
               </h3>
-              <ul class="flex flex-wrap gap-2">
-                {#each item.type as singleType}
-                  <li>
-                    <span
-                      class="text-sm text-secondary bg-accent/50 px-2 py-1 rounded"
-                    >
-                      {singleType}
-                    </span>
-                  </li>
-                {/each}
-              </ul>
             </div>
+            <ul class="flex flex-wrap gap-2 mb-4">
+              {#each item.type as singleType}
+                <li>
+                  <span
+                    class="text-sm text-secondary bg-accent/50 px-2 py-1 rounded"
+                  >
+                    {singleType}
+                  </span>
+                </li>
+              {/each}
+            </ul>
             <p class="text-secondary leading-relaxed">
               {item.description}
             </p>
