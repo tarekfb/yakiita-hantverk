@@ -46,7 +46,7 @@
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
-        Portfolio
+        Mina verk
       </h2>
       <p class="text-lg text-secondary max-w-2xl mx-auto">
         En samling av mina senaste projekt som visar mångfalden i mitt hantverk.
