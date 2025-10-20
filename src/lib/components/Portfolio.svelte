@@ -82,7 +82,7 @@
                     <Carousel.Item>
                       <div class="w-full h-full">
                         <img
-                          src={urlFor(image).width(200).url()}
+                          src={urlFor(image).width(1000).url()}
                           alt={item.title}
                           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -99,7 +99,7 @@
               </Carousel.Root>
             {:else}
               <img
-                src={urlFor(item.image[0]).width(200).url()}
+                src={urlFor(item.image[0]).width(1000).url()}
                 alt={item.title}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
