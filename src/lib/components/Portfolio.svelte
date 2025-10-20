@@ -1,44 +1,46 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import type { PortfolioItem } from '$lib/types/portfolioItem'
-  import * as Carousel from '$lib/components/ui/carousel'
-  import { urlFor } from '$lib/sanity/sanity-images'
+  import { onMount } from "svelte";
+  import type { PortfolioItem } from "$lib/types/portfolioItem";
+  import * as Carousel from "$lib/components/ui/carousel";
+  import { urlFor } from "$lib/sanity/sanity-images";
+  import * as Dialog from "$lib/components/ui/dialog/index.js";
+    import Lightbox from "./Lightbox.svelte";
 
   interface Props {
-    items: PortfolioItem[]
-    types: string[]
+    items: PortfolioItem[];
+    types: string[];
   }
 
-  let { items, types }: Props = $props()
+  let { items, types }: Props = $props();
 
-  let selectedCategory = $state('Alla')
-  let categories = $derived(['Alla', ...types])
+  let selectedCategory = $state("Alla");
+  let categories = $derived(["Alla", ...types]);
 
   let filteredItems = $derived(
-    selectedCategory === 'Alla'
+    selectedCategory === "Alla"
       ? items
-      : items.filter((item) => item.type.includes(selectedCategory))
-  )
+      : items.filter((item) => item.type.includes(selectedCategory)),
+  );
 
-  const base = 6
-  let loadedItems = $state(base)
-  const itemsPerLoad = 3
+  const base = 6;
+  let loadedItems = $state(base);
+  const itemsPerLoad = 3;
 
   function loadMore() {
-    loadedItems += itemsPerLoad
+    loadedItems += itemsPerLoad;
   }
 
-  let visibleItems = $derived(filteredItems.slice(0, loadedItems))
-  let hasMore = $derived(visibleItems.length < filteredItems.length)
+  let visibleItems = $derived(filteredItems.slice(0, loadedItems));
+  let hasMore = $derived(visibleItems.length < filteredItems.length);
 
   onMount(() => {
     // Reset loadedItems when category changes
-    loadedItems = base
-  })
+    loadedItems = base;
+  });
 
   function handleCategoryChange(category: string) {
-    selectedCategory = category
-    loadedItems = 6
+    selectedCategory = category;
+    loadedItems = 6;
   }
 </script>
 
@@ -74,18 +76,23 @@
         <div
           class="group bg-background rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
         >
-          <div class="h-64 w-full overflow-hidden">
+          <div class="h-56 w-full overflow-hidden">
             {#if item.image.length > 1}
               <Carousel.Root class="w-full h-full">
                 <Carousel.Content>
                   {#each item.image as image}
                     <Carousel.Item>
-                      <div class="relative w-full  ">
-                        <img
-                          src={urlFor(image).width(1000).url()}
-                          alt={item.title}
-                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                      <div class="relative w-full">
+                        <Dialog.Root>
+                          <Dialog.Trigger class="w-full cursor-pointer">
+                            <img
+                              src={urlFor(image).width(1000).url()}
+                              alt={item.title}
+                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </Dialog.Trigger>
+                          <Dialog.Content class="w-full"><Lightbox src={urlFor(image).width(1000).url()} alt={item.title}/></Dialog.Content>
+                        </Dialog.Root>
                       </div>
                     </Carousel.Item>
                   {/each}
@@ -98,11 +105,16 @@
                 />
               </Carousel.Root>
             {:else}
+            <Dialog.Root>
+              <Dialog.Trigger class="w-full cursor-pointer">
               <img
                 src={urlFor(item.image[0]).width(1000).url()}
                 alt={item.title}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
+            </Dialog.Trigger>
+            <Dialog.Content class="w-full"><Lightbox src={urlFor(item.image[0]).width(1000).url()} alt={item.title}/></Dialog.Content>
+          </Dialog.Root>
             {/if}
           </div>
           <div class="p-6">
