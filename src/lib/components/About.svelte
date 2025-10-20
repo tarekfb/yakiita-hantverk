@@ -1,3 +1,8 @@
+<script lang="ts">
+  import { Paintbrush, Hammer } from 'lucide-svelte';
+
+</script>
+
 <section id="about" class="py-20 bg-background">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto">
@@ -26,7 +31,7 @@
             <div
               class="text-center p-4 bg-accent/10 rounded-lg border border-accent/20"
             >
-              <div class="text-3xl mb-2">🎨</div>
+              <div class="mb-2 flex items-center justify-center"><Paintbrush class="size-10" /></div>
               <h3 class="text-xl font-bold text-primary mb-2">Modern design</h3>
               <p class="text-secondary text-sm">
                 Känsla för modern och stilren design
@@ -35,7 +40,7 @@
             <div
               class="text-center p-4 bg-accent/10 rounded-lg border border-accent/20"
             >
-              <div class="text-3xl mb-2">⚒️</div>
+              <div class="mb-2 flex justify-center items-center"><Hammer class="size-10" /></div>
               <h3 class="text-xl font-bold text-primary mb-2">
                 Traditionella tekniker
               </h3>
