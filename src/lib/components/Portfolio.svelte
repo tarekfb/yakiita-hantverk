@@ -108,7 +108,7 @@
               <img
                 src={urlFor(item.image[0]).width(1000).url()}
                 alt={item.title}
-                class="w-full h-full object-contain group-hover:scale-105 -mt-12 transition-transform duration-300"
+                class="w-full h-full object-contain group-hover:scale-105 -mt-12 md:-mt-0 transition-transform duration-300"
               />
             </Dialog.Trigger>
             <Dialog.Content class="w-full"><Lightbox src={urlFor(item.image[0]).width(1000).url()} alt={item.title}/></Dialog.Content>
