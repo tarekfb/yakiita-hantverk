@@ -82,18 +82,16 @@
                 <Carousel.Content>
                   {#each item.image as image}
                     <Carousel.Item>
-                      <div class="relative w-full">
                         <Dialog.Root>
                           <Dialog.Trigger class="w-full cursor-pointer">
                             <img
                               src={urlFor(image).width(1000).url()}
                               alt={item.title}
-                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              class="w-full h-full object-center -mt-12 group-hover:scale-105 transition-transform duration-300"
                             />
                           </Dialog.Trigger>
                           <Dialog.Content class="w-full"><Lightbox src={urlFor(image).width(1000).url()} alt={item.title}/></Dialog.Content>
                         </Dialog.Root>
-                      </div>
                     </Carousel.Item>
                   {/each}
                 </Carousel.Content>
@@ -110,7 +108,7 @@
               <img
                 src={urlFor(item.image[0]).width(1000).url()}
                 alt={item.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-contain group-hover:scale-105 -mt-12 transition-transform duration-300"
               />
             </Dialog.Trigger>
             <Dialog.Content class="w-full"><Lightbox src={urlFor(item.image[0]).width(1000).url()} alt={item.title}/></Dialog.Content>
