@@ -74,13 +74,13 @@
         <div
           class="group bg-background rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
         >
-          <div class="aspect-square overflow-hidden">
+          <div class="h-64 w-full overflow-hidden">
             {#if item.image.length > 1}
               <Carousel.Root class="w-full h-full">
                 <Carousel.Content>
                   {#each item.image as image}
                     <Carousel.Item>
-                      <div class="w-full h-full">
+                      <div class="relative w-full  ">
                         <img
                           src={urlFor(image).width(1000).url()}
                           alt={item.title}
