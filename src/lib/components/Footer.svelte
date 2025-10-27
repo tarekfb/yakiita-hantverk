@@ -1,6 +1,12 @@
 <script>
-  import { city, country, email, phoneNumber, foundingYear } from '$lib/constants'
-  import { Mail, MapPin, Phone } from 'lucide-svelte';
+  import {
+    city,
+    country,
+    email,
+    phoneNumber,
+    foundingYear,
+  } from "$lib/constants";
+  import { Mail, MapPin, Phone } from "lucide-svelte";
 </script>
 
 <footer class="bg-primary text-accent py-12">
@@ -27,7 +33,7 @@
 
       <div>
         <h4 class="font-semibold mb-4">Kontakt</h4>
-        <div class="space-y-2 text-accent/80  *:flex *:gap-x-2 *:items-center">
+        <div class="space-y-2 text-accent/80 *:flex *:gap-x-2 *:items-center">
           <div>
             <Phone class="size-4 text-accent/80 shrink-0" />
             <a href="tel:{phoneNumber}">{phoneNumber}</a>
@@ -45,8 +51,15 @@
     </div>
 
     <div class="border-t border-accent/20 mt-8 pt-8 text-center">
-      <p class="flex items-center justify-center space-x-2 text-accent/60">
+      <p
+        class="flex flex-col items-center justify-center space-x-2 text-accent/60 text-sm"
+      >
         <span>© 2025 Yakiita Hantverk</span>
+        <span
+          >Hemsida skapad av <a href="https://linkedin.com/in/tarek-bermalm" class="underline"
+            >Tarek Bermalm</a
+          ></span
+        >
       </p>
     </div>
   </div>

@@ -28,7 +28,16 @@
     </p>
     <p class="text-lg text-secondary mb-4 mt-8">Snickare & Hantverkare</p>
 
-    <div class="flex justify-center">
+    <div class="flex justify-around md:justify-center md:gap-x-4">
+      <Button
+      on:click={callPhone}
+      size="lg"
+      variant="outline"
+      class="flex items-center self-center justify-center transition-colors mb-6 mt-8"
+    >
+      <Phone class="h-5 w-5 mr-2" />
+      Se verk
+    </Button>
       <Button
         on:click={callPhone}
         size="lg"
