@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { ChevronDown, Phone } from 'lucide-svelte'
-  import { Button } from './ui/button'
-  import { phoneNumber } from '$lib/constants'
+  import { ChevronDown, Phone } from "lucide-svelte";
+  import { Button } from "./ui/button";
+  import { phoneNumber } from "$lib/constants";
 
   function scrollToAbout() {
-    const element = document.getElementById('about')
+    const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   function callPhone() {
-    window.location.href = `tel:${phoneNumber}`
+    window.location.href = `tel:${phoneNumber}`;
   }
 </script>
 
@@ -28,16 +28,7 @@
     </p>
     <p class="text-lg text-secondary mb-4 mt-8">Snickare & Hantverkare</p>
 
-    <div class="flex justify-around md:justify-center md:gap-x-4">
-      <Button
-      on:click={callPhone}
-      size="lg"
-      variant="outline"
-      class="flex items-center self-center justify-center transition-colors mb-6 mt-8"
-    >
-      <Phone class="h-5 w-5 mr-2" />
-      Se verk
-    </Button>
+    <div class="flex justify-center">
       <Button
         on:click={callPhone}
         size="lg"
